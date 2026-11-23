@@ -1,0 +1,6 @@
+# Shopify OS 2.0 / Dawn Liquid Speed & CRO Rules (2026)
+- Never add synchronous `<script>` tags in `<head>` for chat widgets, reviews, or trackers — defer or load on user interaction.
+- Always add explicit `width`, `height`, and `fetchpriority="high"` to the hero LCP image; use `loading="lazy"` ONLY below the fold.
+- Guard mobile horizontal overflow at 390px viewport: `html, body { max-width: 100%; overflow-x: clip; }`.
+- Emit valid `Product` + `Organization` JSON-LD structured data with `price`, `priceCurrency`, and `availability`.
+- Replace heavy $15-$49/mo third-party apps (announcement bars, free shipping progress bars, sticky ATC, FAQ accordions) with zero-JS or <2 KB native Liquid sections.

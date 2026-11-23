@@ -1,0 +1,5 @@
+# Python 3.12 + FastAPI + AI Agent Service Rules
+- Use type annotations everywhere (PEP 695/604 syntax), Pydantic v2 models for request/response validation, and `async` I/O for network calls.
+- Wrap LLM and external API calls with bounded timeouts, exponential backoff on 429/503, and structured JSON output schemas.
+- Never interpolate untrusted input into SQL, shell commands, or prompt system instructions.
+- Keep secrets strictly in environment variables via `pydantic-settings`; never log API keys or tokens.

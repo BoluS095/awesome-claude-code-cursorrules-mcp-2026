@@ -1,0 +1,5 @@
+# PostgreSQL + Drizzle ORM Production Safety Rules
+- Every multi-tenant table MUST include a non-null `company_id` / `tenant_id` index and enforce scope in every WHERE clause.
+- Wrap multi-step financial, inventory, or checkout state transitions in explicit SQL transactions with atomic conditional updates.
+- Never run destructive DDL (`DROP`, `TRUNCATE`, unscoped `DELETE`) without explicit operator confirmation.
+- Add composite indexes matching the actual `WHERE` + `ORDER BY` hot query paths; inspect `EXPLAIN (ANALYZE, BUFFERS)` on slow endpoints.

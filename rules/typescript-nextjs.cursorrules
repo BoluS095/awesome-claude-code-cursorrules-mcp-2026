@@ -1,0 +1,6 @@
+# TypeScript + Next.js 15 / React 19 Production Rules
+- Strict TypeScript (`strict: true`, zero `any` on public boundaries, explicit return types on exported functions).
+- Prefer React Server Components by default; add `"use client"` only for stateful/interactive leaf components.
+- Validate all Route Handler / Server Action payloads with Zod before touching DB or external APIs.
+- Handle loading, empty, and error states explicitly; never ignore rejected Promises.
+- Avoid N+1 queries; batch relational reads and enforce tenant/user authorization at the data access boundary.

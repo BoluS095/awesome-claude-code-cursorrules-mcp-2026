@@ -1,0 +1,5 @@
+# Playwright E2E & Browser Forensic Audit Rules
+- Prefer user-facing locators (`getByRole`, `getByLabel`, `getByText`) over brittle CSS/XPath chains.
+- Never use arbitrary `waitForTimeout` sleeps when an assertion or network response wait (`expect(...).toBeVisible()`) expresses the true readiness condition.
+- Capture real failed HTTP `4xx/5xx` responses separately from intentional lazy-loaded below-the-fold images (`loading="lazy"`).
+- Always close browser contexts cleanly inside `try { ... } finally { await browser.close(); }`.

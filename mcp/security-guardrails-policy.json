@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "policy": "least-privilege-mcp",
+  "rules": [
+    {
+      "action": "db_write",
+      "requireHumanApproval": true,
+      "reason": "Prevent accidental destructive SQL mutations"
+    },
+    {
+      "action": "git_force_push",
+      "allowed": false,
+      "reason": "Protect shared branch history"
+    },
+    {
+      "action": "secret_file_read",
+      "denyGlobs": [
+        "**/.env",
+        "**/.env.*",
+        "**/*.pem",
+        "**/*id_rsa*"
+      ],
+      "reason": "Never leak credentials into model context"
+    },
+    {
+      "action": "external_email_send",
+      "requireRateLimit": {
+        "maxPerHour": 20,
+        "requireOptOutCheck": true
+      }
+    }
+  ]
+}

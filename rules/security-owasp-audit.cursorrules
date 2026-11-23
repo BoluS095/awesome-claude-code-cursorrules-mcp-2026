@@ -1,0 +1,6 @@
+# Security & Pre-Commit OWASP Review Rules
+- Block hardcoded API keys, JWT secrets, private keys, or live webhook secrets before commit.
+- Enforce server-side auth & ownership checks on every mutating endpoint (prevent IDOR / BOLA).
+- Sanitize HTML output and avoid `dangerouslySetInnerHTML` / raw DOM injection to prevent XSS.
+- Verify webhook HMAC signatures (Stripe, Shopify, GitHub) using constant-time comparison before processing events.
+- Pin third-party script origins and apply least-privilege scopes to OAuth tokens and MCP servers.
